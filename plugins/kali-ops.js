@@ -329,7 +329,7 @@ const DENY = [
   { re: /\bmkfs(\.[a-z0-9]+)?\b/i, why: "memformat filesystem" },
   { re: /\bwipefs\b/i, why: "menghapus signature disk" },
   { re: /\bsgdisk\s+.*--zap-all/i, why: "menghapus seluruh partisi" },
-  { re: /\bdd\b[^|;]*\bof=\/dev\//i, why: "menulis langsung ke device disk", global: true },
+  { re: /\bdd\b[^|;]*\bof=\/dev\/(?!null\b|zero\b|random\b|urandom\b|tty\b|shm\b|fd\b|stdin\b|stdout\b|stderr\b|full\b|ptmx\b|pts\/)[a-z]/i, why: "menulis langsung ke device disk", global: true },
   { re: />\s*\/dev\/(sd|nvme|vd)[a-z]/i, why: "redirect output ke device disk", global: true },
   { re: /\b(ufw|firewall-cmd)\s+(disable|reset)\b/i, why: "mematikan firewall" },
   { re: /\biptables\s+-F\b/, why: "menghapus semua rule iptables" },
